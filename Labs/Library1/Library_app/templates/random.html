@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if x > 50 %}
+        <p>Greater than 50</p>
+    {% elif x < 50 %}
+        <p>Less than 50</p>
+    {% endif %}
+{% endblock %}

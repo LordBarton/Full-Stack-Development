@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <ul>
+        {% for n in x %}
+            {% if n|divisibleby:3 and n|divisibleby:5 %}
+                <li style="display: block;">FizzBuzz</li>
+            {% elif n|divisibleby:3 %}
+                <li style="display: block;">Fizz</li>
+            {% elif n|divisibleby:5 %}
+                <li style="display: block;">Buzz</li>
+            {% else %}
+                <li style="display: block;">{{n}}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}
