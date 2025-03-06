@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>🍕Mamma mia! Welcome-a to "Pizzeria Di Cazzo!🍕</h1>
+                
+                {% if not request.user.is_authenticated %}
+                    <a href="/login">Log in</a> or <a href="/signup">make a new account</a><p> to place an order.</p>
+                {% else %}
+                    <a href="/order">Place a new order.</a> 
+                {% endif %}
+                <br><br>
+                <h1>About us</h1>
+                <i>Ah, benvenuti! I’m Giorgio Cippani, a master pizzaiolo from Napoli, and let me tell you something—my pizza is the best. 50 years of perfecting the dough passed down from my nonno, who learned it from his nonno who (God rest his soul) tragically died fighting in the II World War from the hands of a nazi death squad and after being interrogated and tortured for days and at last being blessed with the sweet (just like our sauce) release of death. You think you’ve had pizza? You haven’t.
+                    We use the freshest ingredients—tomatoes, mozzarella, and a secret cheese from the mountains (don’t ask, it’s a secret). And the delivery? Ha! We send it across oceans at supersonic speed—you’ll get your pizza faster than you can say "mamma mia!"
+                    How to order? Easy:</i>
+                <ol>
+                    <li>Sign up or log in (come on, you need to).</li>
+                    <li>Hit "Place a New Order" (on the navbar).</li>
+                    <li>Fill in your details and prepare for greatness.</li><br>
+                    <i>Trust me, your taste buds will thank you.</i><br>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container text-right">
+        <h4>Contact Details</h4>
+        <p><a href="mailto:bartosz.kogut2@mail.dcu.ie">bartosz.kogut2@mail.dcu.ie</a></p>
+        <i>Giorgio Cippani<br>
+        Via Concordia 4<br>
+        80134 Napoli<br>
+        Italia<br>
+        </i>
+        <iframe width="300" height="300" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=naples%20via%20concordia%204+(Pizzeria%20di%20cazzo)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+    </footer>
+{% endblock %}

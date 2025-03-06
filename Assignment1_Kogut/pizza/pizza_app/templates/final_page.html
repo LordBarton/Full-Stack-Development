@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Order Summary</h1>    
+    
+<h1>Your pizza order:</h1>    
+    <ul>
+        <li><strong>Size:</strong> {{ order.size }}</li>
+        <li><strong>Crust:</strong> {{ order.crust }}</li>
+        <li><strong>Sauce:</strong> {{ order.sauce }}</li>
+        <li><strong>Cheese:</strong> {{ order.cheese }}</li>
+        <li><strong>Toppings:</strong>
+        <ul>
+            {% if order.pepperoni %}<li>Pepperoni</li>{% endif %}
+            {% if order.chicken %}<li>Chicken</li>{% endif %}
+            {% if order.ham %}<li>Ham</li>{% endif %}
+            {% if order.pineapple %}<li>Pineapple</li>{% endif %}
+            {% if order.peppers %}<li>Peppers</li>{% endif %}
+            {% if order.mushrooms %}<li>Mushrooms</li>{% endif %}
+            {% if order.onions %}<li>Onions</li>{% endif %}
+        </ul>
+        </li>
+        <li><strong>Order Placed on:</strong> {{ order.created_at }}</li>
+    </ul>
+    
+    <p>Thank you for your order no. {{ order.id }}!</p>
+    <strong>Delivery Address:</strong>
+    
+    <p>Name: {{order.name }}</p>
+    <p>Phone number: {{order.phone_number }}</p>
+    <p>Street: {{order.street_address }}</p>
+    <p>City: {{order.city }}</p>
+    <p>County: {{order.county }}</p>
+    <p>Eire Code: {{order.eire_code }}</p>
+    <strong>Expected Delivery Time: 1 hour</strong>
+    
+    <br>
+    <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
+    <a href="{% url 'order' %}" class="btn btn-secondary">Order Another Pizza</a>
+{% endblock %}

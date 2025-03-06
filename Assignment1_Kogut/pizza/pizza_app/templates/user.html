@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Welcome, {{ request.user.username }}</h1>
+    <p>Past Orders:</p>
+
+    <ul class="list-group bg-transparent">
+        {% for order in orders %}
+            <li class="list-group-item bg-transparent">
+                <strong>Size:</strong> {{ order.size }}
+                <strong>Crust:</strong> {{ order.crust }}
+                <strong>Sauce:</strong> {{ order.sauce }}
+                <strong>Cheese:</strong> {{ order.cheese }}
+                <strong>Toppings:</strong>
+                <ul>
+                    {% if order.pepperoni %}<li>Pepperoni</li>{% endif %}
+                    {% if order.chicken %}<li>Chicken</li>{% endif %}
+                    {% if order.ham %}<li>Ham</li>{% endif %}
+                    {% if order.pineapple %}<li>Pineapple</li>{% endif %}
+                    {% if order.peppers %}<li>Peppers</li>{% endif %}
+                    {% if order.mushrooms %}<li>Mushrooms</li>{% endif %}
+                    {% if order.onions %}<li>Onions</li>{% endif %}
+                    {% if not order.pepperoni and not order.chicken and not order.ham and not order.pineapple and not order.peppers and not order.mushrooms and not order.onions %}
+                        <li>None</li>
+                    {% endif %}
+                </ul>
+                <strong>Placed on:</strong> {{ order.created_at }}
+            </li>
+            <br>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'order' %}" class="btn btn-primary">Make a new Order</a>
+
+{% endblock %}
